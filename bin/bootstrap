@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+
+# Exit if any subcommand fails
+set -e
+
+# Add binstubs to PATH in ~/.zshrc:
+#   export PATH=".git/safe/../../bin:$PATH"
+mkdir -p .git/safe
+
+bundle install --path vendor/bundle
+
+# Create configs from examples
+if [ ! -f config/database.yml ]; then
+    cp config/examples/database.yml config/database.yml
+fi
+
+if [ ! -f config/secrets.yml ]; then
+    cp config/examples/secrets.yml config
+fi
+
+set +e
+
+echo "Try to setup application with default configs... "
+
+bin/rake db:setup 2> /dev/null
+
+if ((! $? == 0 )); then
+  echo "Fail."
+  echo "Please edit configs and start bin/bootstrap again."
+  exit $?
+else
+  echo "Success."
+fi
