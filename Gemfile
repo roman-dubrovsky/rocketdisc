@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'russian', '~> 0.6.0'
 gem "font-awesome-rails"
+gem "pundit"
+gem 'carrierwave'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
