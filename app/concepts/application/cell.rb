@@ -5,9 +5,9 @@ class Application::Cell < Cell::Concept
   include ActionView::Helpers::FormHelper
   include ActionView::Helpers::FormOptionsHelper
   include ActionView::RecordIdentifier
-  #include SimpleForm::ActionViewExtensions::FormHelper
+  include SimpleForm::ActionViewExtensions::FormHelper
   #include Ransack::Helpers::FormHelper
-  #include Devise::Controllers::Helpers
+  include Devise::Controllers::Helpers
 
   # In fact cells hardly depends on haml which defines Object#is_haml?
   def is_haml?
