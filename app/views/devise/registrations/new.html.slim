@@ -1,0 +1,37 @@
+.container-fluid.user_signup
+  .col-md-6.col-md-offset-3
+    h4
+      i.fa.fa-user.fa-fw
+
+      | Регистрация аккаунта
+
+    .user__form
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        fieldset
+          .form-group.input-group
+            span.input-group-addon
+              i.fa.fa-paper-plane
+
+            = f.input :name, autofocus: true, label: false, placeholder: "Логин"
+
+          .form-group.input-group
+            span.input-group-addon @
+
+            = f.input :email, label: false, placeholder: "Email"
+
+          .form-group.input-group
+            span.input-group-addon
+              i.fa.fa-lock
+
+            = f.input :password, autocomplete: "off", label: false, placeholder: "Пароль ( минимум 8 символов )"
+
+          .form-group.input-group
+            span.input-group-addon
+              i.fa.fa-lock
+
+            = f.input :password_confirmation, autocomplete: "off", label: false, placeholder: "Подтвердите пароль"
+
+          .form-group
+            = f.submit "Регистрация", class: "btn btn-success btn-block"
+
+      = render "devise/shared/links"

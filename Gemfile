@@ -17,6 +17,7 @@ gem 'cells', github: 'proghat/cells', branch: 'html_safe'
 gem 'simple_form'
 gem 'devise'
 gem 'russian', '~> 0.6.0'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
