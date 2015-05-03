@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'puma'
 
 gem "slim-rails"
 gem 'cells', github: 'proghat/cells', branch: 'html_safe'
@@ -29,3 +30,6 @@ group :test do
   gem 'simplecov', :require => false, :group => :test
 end
 
+group :production do
+  gem 'rails_12factor'
+end

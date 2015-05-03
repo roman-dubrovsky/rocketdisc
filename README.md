@@ -1,10 +1,10 @@
 # Rocket Disc
 
+[Application](https://mysterious-sands-4637.herokuapp.com/)
+
 Simple file WebDAV starage
 
 ### Install
-
-Copy and configurate files from `config/examples` and run
 
 ```
 bin/bootstrap
@@ -14,6 +14,13 @@ bin/bootstrap
 
 ```
 bin/rspec
+```
+
+### Deploying
+```
+heroku login
+
+git push heroku master
 ```
 
 ## LICENSE

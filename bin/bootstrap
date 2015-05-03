@@ -10,13 +10,13 @@ mkdir -p .git/safe
 bundle install --path vendor/bundle
 
 # Create configs from examples
-if [ ! -f config/database.yml ]; then
-    cp config/examples/database.yml config/database.yml
-fi
+# if [ ! -f config/database.yml ]; then
+#     cp config/examples/database.yml config/database.yml
+# fi
 
-if [ ! -f config/secrets.yml ]; then
-    cp config/examples/secrets.yml config
-fi
+# if [ ! -f config/secrets.yml ]; then
+#     cp config/examples/secrets.yml config
+# fi
 
 set +e
 
