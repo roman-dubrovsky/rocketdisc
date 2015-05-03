@@ -1,0 +1,42 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/roma/sites/rocketdisc/app/controllers/pages_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/roma/sites/rocketdisc/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1430661225
+  }
+}

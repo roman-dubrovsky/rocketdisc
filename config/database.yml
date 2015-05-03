@@ -3,8 +3,6 @@ default: &default
   pool: 5
   timeout: 5000
   host: localhost
-  username: bymaga_app
-  password: 12345678
 
 development:
   <<: *default

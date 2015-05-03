@@ -11,11 +11,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'puma'
 
 gem "slim-rails"
 gem 'cells', github: 'proghat/cells', branch: 'html_safe'
 gem 'simple_form'
+gem 'devise'
+gem 'russian', '~> 0.6.0'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
