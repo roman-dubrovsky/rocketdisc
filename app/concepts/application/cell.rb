@@ -2,7 +2,6 @@ class Application::Cell < Cell::Concept
   abstract!
 
   include ApplicationHelper
-  include HtmlHelper
   include ActionView::Helpers::FormHelper
   include ActionView::Helpers::FormOptionsHelper
   include ActionView::RecordIdentifier

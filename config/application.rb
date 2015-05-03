@@ -30,5 +30,18 @@ module Rocketdisc
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.i18n.default_locale = :ru
+
+    config.autoload_paths += %W(#{config.root}/app/services)
+
+    config.generators do |g|
+      g.stylesheets = false
+      g.javascripts = false
+      g.helper = false
+
+      g.test_framework :rspec
+      g.view_specs false
+    end
   end
 end
