@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "slim-rails"
 gem 'cells', github: 'proghat/cells', branch: 'html_safe'
+gem 'simple_form'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
