@@ -21,6 +21,7 @@ gem "font-awesome-rails"
 gem "pundit"
 gem 'carrierwave'
 gem 'factory_girl'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'

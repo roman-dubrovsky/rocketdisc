@@ -1,4 +1,7 @@
 class Content < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
+
   belongs_to :user
 
   mount_uploader :file, FileUploader

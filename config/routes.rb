@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 
   root 'pages#main'
 
-  get 'home', to: 'contents#index', as: :home
-  get 'home/:file', to: 'contents#download', as: :download
+  resources :contents, path: 'home', only: [:show, :index, :create]
 end
