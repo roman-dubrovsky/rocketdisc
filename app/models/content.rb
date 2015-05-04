@@ -3,6 +3,6 @@ class Content < ActiveRecord::Base
 
   mount_uploader :file, FileUploader
 
-  validates :file, :name, presence: true
+  validates :file, :name, :user, presence: true
   validates :name, uniqueness: { scope: :user, message: "Файл уже существует" }
 end

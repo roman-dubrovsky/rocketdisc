@@ -1,0 +1,13 @@
+.modal.fade#upload-file tabindex="-1" role="dialog" aria-labelledby="uploadFile" aria-hidden="true"
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true" x
+
+        h3.modal-title Загрузить
+
+      .modal-body
+        = simple_form_for Content.new, url: '' do |f|
+          = f.input :file, label: false
+          = f.submit 'Загрузить', class: "btn btn-primary"
