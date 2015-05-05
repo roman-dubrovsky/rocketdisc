@@ -1,12 +1,12 @@
 class ContentsController < ApplicationController
   before_action :set_user
+  before_action :find_content, only: [:show, :destroy]
 
   def index
     @contents = Content.where(user: @user)
   end
 
   def show
-    @content = Content.where(user: @user, name: params[:id]).first
     if @content.present?
       send_file @content.file.path, :url_based_filename => true
     else
@@ -16,14 +16,12 @@ class ContentsController < ApplicationController
 
   def create
     @content = current_user.contents.create(content_params)
-    if @content.present?
-      respond_to do |format|
-        format.html do
-          redirect_to :back
-        end
-        format.js {}
-      end
-    end
+    redirect_to :back
+  end
+
+  def destroy
+    @content.destroy
+    redirect_to :back
   end
 
   private
@@ -36,5 +34,10 @@ class ContentsController < ApplicationController
     def content_params
       content = params.require(:content).permit(:file)
       content.merge({ name: content[:file].original_filename })
+    end
+
+    def find_content
+      params[:id] = "#{params[:id]}.#{params[:format]}" if params[:format].present?
+      @content = Content.where(user: @user, name: params[:id]).first
     end
 end
