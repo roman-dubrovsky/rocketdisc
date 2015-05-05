@@ -8,6 +8,6 @@
         h3.modal-title Загрузить
 
       .modal-body
-        = simple_form_for Content.new, url: '' do |f|
+        = simple_form_for Content.new, remote: true do |f|
           = f.input :file, label: false
           = f.submit 'Загрузить', class: "btn btn-primary"

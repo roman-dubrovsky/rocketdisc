@@ -15,7 +15,15 @@ class ContentsController < ApplicationController
   end
 
   def create
-    binding.pry
+    @content = current_user.contents.create(content_params)
+    if @content.present?
+      respond_to do |format|
+        format.html do
+          redirect_to :back
+        end
+        format.js {}
+      end
+    end
   end
 
   private
@@ -23,5 +31,10 @@ class ContentsController < ApplicationController
     def set_user
       @user = User.find_by(name: params[:user])
       @user ||= current_user
+    end
+
+    def content_params
+      content = params.require(:content).permit(:file)
+      content.merge({ name: content[:file].original_filename })
     end
 end
