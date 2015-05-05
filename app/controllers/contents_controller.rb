@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_user
-  before_action :find_content, only: [:show, :destroy]
+  before_action :find_content, only: [:show, :update, :destroy]
 
   def index
     @contents = Content.where(user: @user)
@@ -19,6 +19,11 @@ class ContentsController < ApplicationController
     redirect_to :back
   end
 
+  def update
+    @content.update(content_params)
+    redirect_to :back
+  end
+
   def destroy
     @content.destroy
     redirect_to :back
@@ -32,8 +37,9 @@ class ContentsController < ApplicationController
     end
 
     def content_params
-      content = params.require(:content).permit(:file)
-      content.merge({ name: content[:file].original_filename })
+      content = params.require(:content).permit(:file, :name)
+      content.merge!({ name: content[:file].original_filename }) if content[:file].present?
+      content
     end
 
     def find_content

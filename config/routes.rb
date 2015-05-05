@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root 'pages#main'
 
-  resources :contents, path: 'home', only: [:show, :index, :create, :destroy]
+  resources :contents, path: 'home', except: [:edit, :new]
 end

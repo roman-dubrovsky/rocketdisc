@@ -16,6 +16,6 @@ class Contents::Item::Cell < Application::Cell
     end
 
     def actions_array
-      %i(download remove)
+      %i(download edit remove)
     end
 end
