@@ -4,8 +4,11 @@ class Content < ActiveRecord::Base
 
   belongs_to :user
 
-  mount_uploader :file, FileUploader
+  validates :name, :user, presence: true
+  validates :name, uniqueness: { scope: :user, message: "Уже существует" }
 
-  validates :file, :name, :user, presence: true
-  validates :name, uniqueness: { scope: :user, message: "Файл уже существует" }
+  self.inheritance_column = :type
+  def self.types
+    %w(Contents::File)
+  end
 end

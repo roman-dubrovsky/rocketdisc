@@ -15,7 +15,7 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @content = current_user.contents.create(content_params)
+    @content = Contents::File.create(content_params)
     redirect_to :back
   end
 
@@ -37,8 +37,9 @@ class ContentsController < ApplicationController
     end
 
     def content_params
-      content = params.require(:content).permit(:file, :name)
+      content = params.require(:contents_file).permit(:file, :name)
       content.merge!({ name: content[:file].original_filename }) if content[:file].present?
+      content.merge!({ user: current_user })
       content
     end
 
