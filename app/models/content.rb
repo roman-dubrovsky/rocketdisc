@@ -9,6 +9,6 @@ class Content < ActiveRecord::Base
 
   self.inheritance_column = :type
   def self.types
-    %w(Contents::File)
+    %w(Contents::File Contents::Folder)
   end
 end

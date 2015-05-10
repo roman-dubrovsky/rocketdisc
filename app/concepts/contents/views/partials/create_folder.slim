@@ -1,0 +1,13 @@
+.modal.fade#create-folder tabindex="-1" role="dialog" aria-labelledby="createFolder" aria-hidden="true"
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true" x
+
+        h3.modal-title Создать папку
+
+      .modal-body
+        = simple_form_for Contents::Folder.new, url: mkcol_contents_url do |f|
+          = f.input :name, label: "Имя"
+          = f.submit "Далее", class: "btn btn-success"

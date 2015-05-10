@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     member do
       patch :proppatch
     end
+    collection do
+      post :mkcol
+    end
   end
 
   resources :contents, path: 'home', only: [:index, :show, :create, :destroy]

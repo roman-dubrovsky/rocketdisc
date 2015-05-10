@@ -7,11 +7,17 @@
 hr
 
 .row
-  .pull-right
+  .pull-right.actions
+    = link_to "#", class: "btn btn-success", "data-toggle" => "modal", "data-target" => "#create-folder"
+      i.fa.fa-plus
+
+      | Добавить папку
+
     = link_to "#", class: "btn btn-primary", "data-toggle" => "modal", "data-target" => "#upload-file"
       i.fa.fa-plus
 
       | Загрузить
 
 == upload_file
+== create_folder
 

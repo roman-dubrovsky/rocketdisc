@@ -15,17 +15,22 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @content = Contents::File.create(content_params)
+    @content = Contents::File.create(file_params)
     redirect_to :back
   end
 
   def proppatch
-    @content.update(content_params)
+    @content.update(file_params)
     redirect_to :back
   end
 
   def destroy
     @content.destroy
+    redirect_to :back
+  end
+
+  def mkcol
+    @content = Contents::Folder.create(folder_params)
     redirect_to :back
   end
 
@@ -36,11 +41,16 @@ class ContentsController < ApplicationController
       @user ||= current_user
     end
 
-    def content_params
+    def file_params
       content = params.require(:contents_file).permit(:file, :name)
       content.merge!({ name: content[:file].original_filename }) if content[:file].present?
       content.merge!({ user: current_user })
       content
+    end
+
+    def folder_params
+      content = params.require(:contents_folder).permit(:name)
+      content.merge!(user: current_user)
     end
 
     def find_content
