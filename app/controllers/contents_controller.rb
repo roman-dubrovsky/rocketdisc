@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_user
-  before_action :find_content, only: [:show, :update, :destroy]
+  before_action :find_content, only: [:show, :proppatch, :destroy]
 
   def index
     @contents = Content.where(user: @user)
@@ -19,7 +19,7 @@ class ContentsController < ApplicationController
     redirect_to :back
   end
 
-  def update
+  def proppatch
     @content.update(content_params)
     redirect_to :back
   end
