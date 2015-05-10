@@ -12,4 +12,8 @@ class Contents::Cell < Application::Cell
     def upload_file
       render 'partials/upload_file'
     end
+
+    def files
+      model
+    end
 end

@@ -1,4 +1,4 @@
-class Contents::Item::Cell < Application::Cell
+class Contents::File::Cell < Application::Cell
   def show
     render
   end
