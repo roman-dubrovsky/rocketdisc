@@ -11,4 +11,7 @@ class Content < ActiveRecord::Base
   def self.types
     %w(Contents::File Contents::Folder)
   end
+
+  scope :files, -> {where(type: 'Contents::File')}
+  scope :folders, -> {where(type: 'Contents::Folder')}
 end

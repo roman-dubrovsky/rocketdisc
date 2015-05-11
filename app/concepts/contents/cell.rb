@@ -18,6 +18,6 @@ class Contents::Cell < Application::Cell
     end
 
     def files
-      model
+      model[:files]
     end
 end

@@ -4,6 +4,8 @@ class ContentsController < ApplicationController
 
   def index
     @contents = Content.where(user: @user)
+    @contents = {files: @contents.files,
+      folders: @contents.folders}
   end
 
   def show

@@ -1,21 +1,11 @@
-class Contents::File::Cell < Application::Cell
-  def show
-    render
-  end
-
+class Contents::File::Cell < Contents::Item::Cell
   private
-
-    def update_date
-      I18n.l(model.updated_at, format: :short)
-    end
-
-    def actions
-      actions_array.map do |action|
-        render "actions/#{action}"
-      end.join
-    end
 
     def actions_array
       %i(download edit remove)
+    end
+
+    def item_id
+      "file-#{model.id}"
     end
 end
