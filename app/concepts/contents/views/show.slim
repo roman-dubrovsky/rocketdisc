@@ -12,5 +12,8 @@ table.table.table-striped
       th
 
   tbody
+    #folders
+      == concept('contents/folder/cell', collection: folders)
+
     #files
-      = concept('contents/file/cell', collection: files)
+      == concept('contents/file/cell', collection: files)

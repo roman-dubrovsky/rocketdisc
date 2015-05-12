@@ -18,4 +18,8 @@ class Contents::Item::Cell < Application::Cell
     def icon
       render 'icon'
     end
+
+    def name
+      model.name
+    end
 end

@@ -20,4 +20,8 @@ class Contents::Cell < Application::Cell
     def files
       model[:files]
     end
+
+    def folders
+      model[:folders]
+    end
 end
