@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510122516) do
+ActiveRecord::Schema.define(version: 20150512233905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20150510122516) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "type"
+    t.integer  "folder_id"
   end
 
+  add_index "contents", ["folder_id"], name: "index_contents_on_folder_id", using: :btree
   add_index "contents", ["user_id"], name: "index_contents_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -46,5 +48,6 @@ ActiveRecord::Schema.define(version: 20150510122516) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "contents", "contents", column: "folder_id"
   add_foreign_key "contents", "users"
 end

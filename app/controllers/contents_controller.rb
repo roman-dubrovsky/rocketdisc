@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  before_action :set_user
+  before_action :set_params
   before_action :find_content, only: [:show, :proppatch, :destroy]
 
   def index
@@ -38,9 +38,11 @@ class ContentsController < ApplicationController
 
   private
 
-    def set_user
+    def set_params
       @user = User.find_by(name: params[:user])
       @user ||= current_user
+
+      @folder = @user.folders.where(name: params[:folder]) if params[:folder].present?
     end
 
     def file_params

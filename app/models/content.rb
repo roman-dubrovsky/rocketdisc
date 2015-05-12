@@ -3,6 +3,7 @@ class Content < ActiveRecord::Base
   friendly_id :name
 
   belongs_to :user
+  belongs_to :folder, class_name: 'Contents::Folder'
 
   validates :name, :user, presence: true
   validates :name, uniqueness: { scope: :user, message: "Уже существует" }
