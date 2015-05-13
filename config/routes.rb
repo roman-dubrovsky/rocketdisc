@@ -3,14 +3,19 @@ Rails.application.routes.draw do
 
   root 'pages#main'
 
-  ['home', 'home/:folder'].each do |path|
-    resources :contents, path: path, only: [:index, :show, :create, :destroy] do
-      member do
-        patch :proppatch
-      end
-      collection do
-        post :mkcol
-      end
+  resources :contents, path: 'home', only: [:index, :show, :create, :destroy] do
+    member do
+      patch :proppatch
+    end
+    collection do
+      post :mkcol
+    end
+  end
+
+  resources :contents, path: 'home/:folder', as: 'folder_contents', only: [:index, :create] do
+    collection do
+      post :mkcol
+      get :back
     end
   end
 end

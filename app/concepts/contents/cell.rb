@@ -24,4 +24,24 @@ class Contents::Cell < Application::Cell
     def folders
       model[:folders]
     end
+
+    def current_folder
+      options[:folder]
+    end
+
+    def create_url
+      if current_folder.present?
+        folder_contents_url current_folder
+      else
+        contents_url
+      end
+    end
+
+    def mkcol_url
+      if current_folder.present?
+        mkcol_folder_contents_url(@folder)
+      else
+        mkcol_contents_url
+      end
+    end
 end

@@ -8,6 +8,6 @@
         h3.modal-title Создать папку
 
       .modal-body
-        = simple_form_for Contents::Folder.new, url: mkcol_contents_url do |f|
+        = simple_form_for Contents::Folder.new, url: mkcol_contents_url(@folder) do |f|
           = f.input :name, label: "Имя"
           = f.submit "Далее", class: "btn btn-success"
