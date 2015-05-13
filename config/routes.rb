@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   root 'pages#main'
 
-  resources :contents, path: 'home', only: [:index, :show, :create, :destroy] do
+  resources :contents, path: 'home', only: [:index, :create, :destroy] do
     member do
+      get :download
       patch :proppatch
     end
     collection do

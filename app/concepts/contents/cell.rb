@@ -39,9 +39,13 @@ class Contents::Cell < Application::Cell
 
     def mkcol_url
       if current_folder.present?
-        mkcol_folder_contents_url(@folder)
+        mkcol_folder_contents_url current_folder
       else
         mkcol_contents_url
       end
+    end
+
+    def back
+      render 'back' if current_folder.present?
     end
 end

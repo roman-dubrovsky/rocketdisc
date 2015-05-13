@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :contents
 
-  scope :folders, -> { where(type: :folder) }
+  def folders
+    Contents::Folder.where(user: self)
+  end
 end
